@@ -25,7 +25,7 @@ const toggleFirstTheme = function () {
   root.style.setProperty("--calc-theme-screen-clr", "hsl(0, 0%, 100%)");
 
   root.style.setProperty("--keys-hover", "hsl(0, 0%, 100%)");
-  root.style.setProperty("--del-reset-hover", "hsl(180, 15%, 57%)");
+  root.style.setProperty("--del-reset-hover", "hsl(200, 23%, 67%)");
   root.style.setProperty("--equal-hover", "hsl(6, 84%, 65%)");
 };
 
@@ -43,6 +43,12 @@ const toggleSecondTheme = function () {
   root.style.setProperty("--keys-bg", "hsl(45, 7%, 89%)");
   root.style.setProperty("--keys-shadow", "hsl(35, 11%, 61%)");
   root.style.setProperty("--calc-theme-screen-clr", "hsl(60, 10%, 19%)");
+
+
+  root.style.setProperty("--keys-hover", "hsl(0, 0%, 100%)");
+  root.style.setProperty("--del-reset-hover", "hsl(188, 59%, 45%)");
+  root.style.setProperty("--equal-hover", "hsl(25, 100%, 61%)");
+
 };
 
 const toggleThirdTheme = function () {
@@ -59,6 +65,10 @@ const toggleThirdTheme = function () {
   root.style.setProperty("--keys-bg", "hsl(268, 47%, 21%)");
   root.style.setProperty("--keys-shadow", "hsl(290, 70%, 36%)");
   root.style.setProperty("--calc-theme-screen-clr", "hsl(52, 100%, 62%)");
+
+  root.style.setProperty("--keys-hover", "hsl(268, 54%, 44%)");
+  root.style.setProperty("--del-reset-hover", "hsl(280, 56%, 44%)");
+  root.style.setProperty("--equal-hover", "hsl(177, 100%, 79%)");
 };
 
 document.querySelector("#theme--1").addEventListener("click", function () {
@@ -87,15 +97,26 @@ let previousOperand;
 let usedOperator;
 numbers.forEach(num => {
   num.addEventListener("click", function () {
-    if (screenNumber.textContent.length < 14) {
+    if(screenNumber.textContent.length < 17) {
+    if(screenNumber.textContent.slice(0) === "0") {
       screenNumber.textContent = parseFloat(
-        screenNumber.textContent + num.textContent
-      );
+        screenNumber.textContent + num.textContent);
     }
+    else {
+      screenNumber.textContent = 
+        screenNumber.textContent + num.textContent;
+    }
+
+    screenNumber.textContent.length > 8 ? screenNumber.style.fontSize = "40px": [];
+    screenNumber.textContent.length > 10 ? screenNumber.style.fontSize = "30px": [];
+  }
   });
 });
 
 deleteBtn.addEventListener("click", function () {
+  screenNumber.textContent.length < 6 ? screenNumber.style.fontSize = "48px": [];
+  screenNumber.textContent.length > 8 ? screenNumber.style.fontSize = "40px": [];
+    screenNumber.textContent.length > 10 ? screenNumber.style.fontSize = "30px": [];
   console.log(screenNumber.textContent.length);
   if (screenNumber.textContent.length > 0) {
     screenNumber.textContent = screenNumber.textContent.slice(0, -1);
@@ -114,6 +135,7 @@ const setPreviousOperand = function () {
 
 operators.forEach(operator => {
   operator.addEventListener("click", function () {
+    screenNumber.style.fontSize = "48px";     
     if (operator.textContent === "+") {
       if (!previousOperand) {
         setPreviousOperand();
@@ -177,7 +199,17 @@ dotBtn.addEventListener("click", function () {
   if (!screenNumber.textContent.includes(".")) screenNumber.textContent += ".";
 });
 
+resetBtn.addEventListener("click", function () {
+  screenNumber.style.fontSize = "48px";
+  screenNumber.textContent = 0;
+  previousOperand = 0;
+  currentOperand = 0;
+});
+
 equalBtn.addEventListener("click", function () {
+  screenNumber.textContent.length < 6 ? screenNumber.style.fontSize = "48px": [];
+  screenNumber.textContent.length > 8 ? screenNumber.style.fontSize = "40px": [];
+  screenNumber.textContent.length > 10 ? screenNumber.style.fontSize = "30px": [];
   if (previousOperand || previousOperand === 0) {
     currentOperand = parseFloat(screenNumber.textContent);
     switch (usedOperator) {
@@ -205,4 +237,9 @@ equalBtn.addEventListener("click", function () {
         break;
     }
   }
+
+  screenNumber.textContent.length < 6 ? screenNumber.style.fontSize = "48px": [];
+  screenNumber.textContent.length > 8 ? screenNumber.style.fontSize = "40px": [];
+  screenNumber.textContent.length > 10 ? screenNumber.style.fontSize = "30px": [];
 });
+

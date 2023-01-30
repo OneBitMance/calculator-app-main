@@ -18,7 +18,7 @@
   /* Variables for Hovering */
 
   --keys-hover: hsl(0, 0%, 100%);
-  --del-reset-hover: hsl(180, 15%, 57%);
+  --del-reset-hover: hsl(200, 23%, 67%);
   --equal-hover: hsl(6, 84%, 65%);
 }
 
@@ -189,7 +189,8 @@ body {
 
 /* Hover Effects */
 
-[data-number]:hover {
+[data-number]:hover,
+[data-operator]:hover {
   background: var(--keys-hover);
 }
 
