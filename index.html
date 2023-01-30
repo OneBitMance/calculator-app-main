@@ -1,26 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Calculator app</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Calculator app</title>
 
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="top">
+        <div class="calc-name">calc</div>
+        <div class="theme-text">theme</div>
+        <div class="radio-buttons">
+          <label for="theme--1">1</label>
+          <input type="radio" id="theme--1" name="theme" value="0" checked />
+          <label for="theme--2">2</label>
+          <input type="radio" id="theme--2" name="theme" value="1" />
+          <label for="theme--3">3</label>
+          <input type="radio" id="theme--3" name="theme" value="2" />
+        </div>
+      </div>
+      <div class="screen">
+        <div class="input--number">0</div>
+      </div>
+      <div class="keypad">
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button data-del>DEL</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button data-operator>+</button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button data-operator>-</button>
+        <button data-dot>.</button>
+        <button data-number>0</button>
+        <button data-operator>/</button>
+        <button data-operator>x</button>
+        <button data-reset>RESET</button>
+        <button data-equal>=</button>
+      </div>
+    </div>
 
-  
-  <div class="attribution">
+    <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+  </div> -->
+    <script src="script.js"></script>
+  </body>
 </html>

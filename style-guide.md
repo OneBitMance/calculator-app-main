@@ -13,6 +13,13 @@ The designs were created to the following widths:
 
 #### Backgrounds
 
+main-bg,
+
+keypad-bg+toggle-bg always both are same
+DEL+RESET text color both are same
+DEL+RESET shadow always both are same
+equal-bg + toggle-circle-bg both are same
+
 - Very dark desaturated blue (main background): hsl(222, 26%, 31%)
 - Very dark desaturated blue (toggle background, keypad background): hsl(223, 31%, 20%)
 - Very dark desaturated blue (screen background): hsl(224, 36%, 15%)

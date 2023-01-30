@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
+:root {
+  --main-bg: hsl(222, 26%, 31%);
+  --keypad-toggle-bg: hsl(223, 31%, 20%);
+  --screen-bg: hsl(224, 36%, 15%);
+  --del-reset-bg: hsl(225, 21%, 49%);
+  --del-reset-shadow: hsl(224, 28%, 35%);
+  --del-reset-clr: hsl(0, 0%, 100%);
+  --input-equal-bg: hsl(6, 63%, 50%);
+  --equal-shadow: hsl(6, 70%, 34%);
+  --equal-clr: hsl(0, 0%, 100%);
+  --keys-clr: hsl(221, 14%, 31%);
+  --keys-bg: hsl(30, 25%, 89%);
+  --keys-shadow: hsl(28, 16%, 65%);
+  --calc-theme-screen-clr: hsl(0, 0%, 100%);
+
+  /* Variables for Hovering */
+
+  --keys-hover: hsl(0, 0%, 100%);
+  --del-reset-hover: hsl(180, 15%, 57%);
+  --equal-hover: hsl(6, 84%, 65%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "League Spartan";
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-bg);
+}
+
+.calculator {
+  display: flex;
+  width: 420px;
+  margin: 20px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.top {
+  display: flex;
+  gap: 25px;
+}
+
+.calc-name,
+.theme-text,
+.radio-buttons label,
+.screen {
+  color: var(--calc-theme-screen-clr);
+}
+
+.top div:nth-child(1) {
+  font-size: 28px;
+  align-self: center;
+}
+
+.top div:nth-child(2) {
+  flex: 2 1;
+  font-size: 13px;
+  text-align: end;
+  align-self: center;
+  text-transform: uppercase;
+}
+
+.screen {
+  width: 100%;
+  height: 100px;
+  background: var(--screen-bg);
+  display: flex;
+  justify-content: flex-end;
+  text-align: end;
+  align-items: center;
+  font-size: 48px;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.radio-buttons {
+  background: var(--keypad-toggle-bg);
+  position: relative;
+  width: 75px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.radio-buttons label {
+  position: absolute;
+  top: -15px;
+  font-size: 14px;
+}
+
+.radio-buttons label:nth-child(1) {
+  left: 15%;
+}
+
+.radio-buttons label:nth-child(3) {
+  left: 44%;
+}
+
+.radio-buttons label:nth-child(5) {
+  right: 13%;
+}
+
+.radio-buttons input {
+  width: 18px;
+  height: 18px;
+  appearance: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.radio-buttons input:checked {
+  background: var(--input-equal-bg);
+}
+
+.input--number {
+  width: 100%;
+  align-self: center;
+}
+
+.keypad {
+  background: var(--keypad-toggle-bg);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(50px, 80px));
+  grid-template-rows: repeat(5, 1fr);
+  min-width: 100%;
+  padding: 23px;
+  grid-gap: 18px;
+  justify-items: center;
+  align-items: center;
+  align-self: center;
+}
+
+.keypad,
+.screen {
+  border-radius: 8px;
+}
+
+.keypad > * {
+  font-family: "League Spartan";
+  border: none;
+  padding: 5px 0;
+  margin: 5px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: var(--keys-bg);
+  box-shadow: 0px 3px 0px var(--keys-shadow);
+  color: var(--keys-clr);
+  font-size: 32px;
+  text-align: center;
+  cursor: pointer;
+}
+
+[data-reset],
+[data-equal] {
+  grid-column: span 2;
+}
+
+[data-reset],
+[data-equal],
+[data-del] {
+  font-size: 23px;
+}
+
+[data-reset],
+[data-del] {
+  background: var(--del-reset-bg);
+  box-shadow: 0px 3px 0px var(--del-reset-shadow);
+  color: var(--del-reset-clr);
+}
+
+[data-equal] {
+  background: var(--input-equal-bg);
+  color: var(--equal-clr);
+  box-shadow: 0px 3px 0px var(--equal-shadow);
+}
+
+/* Hover Effects */
+
+[data-number]:hover {
+  background: var(--keys-hover);
+}
+
+[data-reset]:hover,
+[data-del]:hover {
+  background: var(--del-reset-hover);
+}
+
+[data-equal]:hover {
+  background: var(--equal-hover);
+}
