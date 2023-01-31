@@ -214,15 +214,6 @@ resetBtn.addEventListener("click", function () {
 });
 
 equalBtn.addEventListener("click", function () {
-  screenNumber.textContent.length < 6
-    ? (screenNumber.style.fontSize = "48px")
-    : [];
-  screenNumber.textContent.length > 8
-    ? (screenNumber.style.fontSize = "40px")
-    : [];
-  screenNumber.textContent.length > 10
-    ? (screenNumber.style.fontSize = "30px")
-    : [];
   if (previousOperand || previousOperand === 0) {
     currentOperand = parseFloat(screenNumber.textContent);
     switch (usedOperator) {
